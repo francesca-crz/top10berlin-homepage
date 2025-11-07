@@ -42,31 +42,66 @@
 
     /* Buttons */
     .btn{display:inline-block; padding:14px 28px; border-radius:6px; font-weight:700; letter-spacing:.2px; text-decoration:none; cursor:pointer; border:none}
-    .btn-red{background:var(--t10-red); color:#fff}
-    .btn-outline{background:transparent; color:#fff; border:2px solid #fff}
-    .btn-ghost{background:transparent; color:var(--t10-red); border:1.5px solid var(--t10-red)}
+    .btn-red {
+  background:#E73041;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:.95rem;
+  box-shadow:none;
+}
+    .btn-outline {
+  background: transparent !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .95rem;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  background: #fff !important;
+  color: #111 !important;
+  border-color: #fff !important;
+}
+
+
+    .btn-ghost {
+  background:transparent; color:#111; border:1px solid rgba(0,0,0,.15);
+  padding:10px 16px; border-radius:8px; box-shadow:none;
+}
+.btn-ghost:hover { background:#111; color:#fff; }
+
 
     /* HERO */
-    .hero{
-      position:relative;
-      margin-top:80px;
-      min-height:620px;
-      display:flex; align-items:center; justify-content:center;
-      text-align:center; color:#fff;
-      padding:0 20px;
-      background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("./images/hero.avif") center/cover no-repeat;
-    }
-    .t10-headline{font-size:52px; line-height:1.15; margin-bottom:14px}
-    .t10-headline .accent{color:var(--t10-red)}
-    .hero p{font-size:20px; color:#E6E6E6; margin-bottom:26px}
-    .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-    @media (max-width:900px){
-      .hero{min-height:480px}
-      .t10-headline{font-size:34px}
-      .hero p{font-size:16px}
-    }
+    .main-hero {
+  position:relative;
+  margin-top:80px;
+  min-height:620px;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:#fff;
+  padding:0 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("./images/hero.avif") center/cover no-repeat;
+}
+.hero-title {
+  font-size:52px; line-height:1.15; margin-bottom:18px; color:#fff;
+}
+.hero-title .ux-underline {
+  box-shadow: inset 0 -0.5em 0 rgba(231,48,65,0.8);
+  padding: 0 .15em;
+}
+.hero-sub { font-size:20px; color:#fff; margin:6px 0; }
+.main-hero .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+@media (max-width:900px){
+  .main-hero{min-height:480px}
+  .hero-title{font-size:34px}
+  .hero-sub{font-size:16px}
+}
+
 
     /* Banner */
     .banner{background:var(--bg-soft); text-align:center; padding:80px 60px}
@@ -134,6 +169,17 @@
   background-size:cover;
   background-repeat:no-repeat;
   background-color:#000;
+}
+.hero-card .btn-red {
+  display: inline-flex;
+  width: auto;
+  max-width: max-content;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: .95rem;
+  box-shadow: none;
+  margin-top: 8px;
+  align-self: flex-start;
 }
 /* overlay coerente sulle editor-cards */
 .hero-card::before,
@@ -205,6 +251,17 @@
     .benefit h3{ margin:0 0 8px; font-size:18px; }
 
     .club .section-title{ text-align:center; font-size:22px; margin:34px 0 10px; }
+.club .section-title{ text-align:center; font-size:22px; margin:34px 0 10px; }
+
+.club p.sub {
+  text-align: center;
+  margin: 0 auto 26px;
+  max-width: 900px;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.5;
+  white-space: normal;
+}
 
     /* Sneak Peek partner cards */
     .partners{
@@ -219,11 +276,23 @@
     .partner-card .name{font-weight:800; margin-bottom:6px}
     .partner-card .perk{color:#555; font-size:14px; line-height:1.5}
 
-    .proof{
-      background:#FCFCFC; border:1px dashed var(--line); border-radius:12px;
-      padding:16px; text-align:center; margin:10px 0 24px;
-    }
-    .club-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:10px; }
+    .proof {
+  background: #FCFCFC;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  margin: 40px 0 40px; /* spazio sopra e sotto */
+}
+
+  .club-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px; /* spazio sotto il bottone rosso */
+}
+
 
     /* FAQ accordion */
     .faq{max-width:900px; margin:14px auto 0; border-top:1px solid var(--line)}
@@ -241,6 +310,12 @@
     }
 
     /* Newsletter & Footer */
+    .newsletter .btn-red {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: .95rem;
+}
+
     .newsletter{background:var(--bg-soft); text-align:center}
     .newsletter h2{font-size:26px; margin-bottom:8px}
     .newsletter p{color:var(--muted); margin-bottom:18px}
@@ -273,20 +348,25 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-overlay">
-      <h1 class="t10-headline">
-        Die <span class="accent">besten</span> Locations <span class="accent">Berlins</span><br>
-        kuratiert in exklusiven <span class="accent">Top10</span> Listen
-      </h1>
-      <p>Keine Zeit verschwenden : Wir kuratieren, du erlebst.</p>
-      <div class="cta">
-        <a class="btn btn-red js-scroll" href="#categories">Top10 Listen entdecken</a>
-        <a class="btn btn-outline js-scroll" href="#club">Club beitreten</a>
-      </div>
+
+<!-- HERO -->
+<section class="main-hero" id="top">
+  <div class="hero-overlay">
+    <h1 class="hero-title">
+      Die besten Empfehlungen für Berlin,<br>
+      kuratiert in exklusiven Top10 Listen
+    </h1>
+    <p class="hero-sub">Handverlesene Tipps: Wir recherchieren und testen, Du entdeckst.</p>
+    <p class="hero-sub">Exklusive Vorteile bei Berlins besten Erlebnissen</p>
+    <p class="hero-sub">Der Top10 Club: Kuratierte Vorteile, monatliche Insider-Tipps.</p>
+
+    <div class="cta">
+      <a class="btn btn-red js-scroll" href="#categories">Top10 Listen entdecken</a>
+      <a class="btn btn-outline js-scroll" href="#club">Club beitreten</a>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Club Ad-Banner -->
   <section class="banner section" aria-label="Top10 Club Banner">
@@ -326,7 +406,7 @@
 
   <!-- Recommendations – Editor’s Choice con caption + Mehr erfahren -->
   <section id="recs" class="section recs">
-    <h2>Featured Locations – Editor’s Choice</h2>
+    <h2>Featured Locations</h2>
 
     <div class="grid">
       <div class="grid-card">
@@ -373,7 +453,7 @@
 
   <!-- Editor's Picks -->
   <section id="editors" class="section editors">
-  <h2>Editor’s Picks – Handpicked by Top10Berlin</h2>
+  <h2>Empfehlungen der Redaktion</h2>
   <div class="editors-grid">
     <!-- HERO a sinistra -->
     <div class="hero-card" style="background-image:url('./images/editors-hero-rooftop.jpg')">
@@ -400,8 +480,7 @@
   <!-- CATEGORIES (teaser con 3+ liste) -->
   <section id="categories" class="section categories" aria-label="Top10 Kategorien">
     <h2>Top10 Kategorien</h2>
-    <p class="sub">Entdecke die besten Orte in Berlin – kuratiert nach Kategorien.</p>
-
+    <p class="sub">Echte Erlebnisse. Echter Zugriff. Für Berliner, die mehr wollen als nur Empfehlungen.</p>
     <div class="cat-grid">
       <article class="cat">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop')"></div>
@@ -479,8 +558,8 @@
 
   <!-- Instagram -->
   <section id="instagram" class="section ig">
-    <h2>Direkt aus unserem Feed</h2>
-    <p>Folge @top10berlin für tägliche Inspiration</p>
+    <h2>Unser Instagram Feed</h2>
+    <p>Folge @top10berli für täglich neue Tipps</p>
     <div class="mosaic">
       <div class="mosaic-item" style="background-image:url('./images/ig-reel-1.jpg')"></div>
       <div class="mosaic-item" style="background-image:url('./images/ig-reel-2.jpg')"></div>
@@ -489,104 +568,76 @@
     </div>
   </section>
 
-  <!-- Top10 Club – Why join -->
-  <section id="club" class="section club" aria-label="Top10 Club Details">
-    <div class="inner">
-      <h2>Warum dem Top10 Club beitreten?</h2>
-      <p class="sub">Echte Erlebnisse. Echter Zugriff. Für Berliner, die mehr wollen als nur Empfehlungen.</p>
+  <!-- Top10 Club – Why join (semplice) -->
+<section id="club" class="section club" aria-label="Top10 Club Details">
+  <div class="inner">
+    <h2>Warum dem Top10 Club beitreten?</h2>
+    <p class="sub">
+      Echte Erlebnisse. Echter Zugriff. Für Berliner, die mehr wollen als nur Empfehlungen.
+    </p>
 
-      <!-- Benefits -->
-      <div class="benefits">
-        <div class="benefit">
-          <h3>Member Privileges</h3>
-          <p>Exklusive Vorteile bei Restaurants, Spas und Kulturorten – monatlich aktualisiert.</p>
-        </div>
-        <div class="benefit">
-          <h3>Early Access</h3>
-          <p>Einladungen zu Openings, Ausstellungen und Pop-ups, bevor sie öffentlich sind.</p>
-        </div>
-        <div class="benefit">
-          <h3>VIP Entry</h3>
-          <p>Line-Skip bei ausgewählten Events und bevorzugte Reservierungen.</p>
-        </div>
+    <div class="benefits">
+      <div class="benefit">
+        <h3>Member Privileges</h3>
+        <p>Exklusive Vorteile bei Restaurants, Spas und Kulturorten – monatlich aktualisiert.</p>
       </div>
-
-      <!-- Sneak Peek of Club Benefits -->
-      <h3 class="section-title">Einblick in unsere Club-Benefits</h3>
-<div class="partners">
-  <article class="partner-card">
-    <div class="img" style="background-image:url('./images/club-liquidrom.jpg')"></div>
-    <div class="body">
-      <div class="name">Liquidrom</div>
-      <div class="perk">Welcome-Drink + 20 % auf den Wochentag-Eintritt für Mitglieder.</div>
-    </div>
-  </article>
-  <article class="partner-card">
-    <div class="img" style="background-image:url('./images/club-kaefer.jpg')"></div>
-    <div class="body">
-      <div class="name">Käfer Dachgarten</div>
-      <div class="perk">Exklusiver Member-Table mit Reichstagsblick. Limitierte Plätze.</div>
-    </div>
-  </article>
-  <article class="partner-card">
-    <div class="img" style="background-image:url('./images/club-artweek.jpg')"></div>
-    <div class="body">
-      <div class="name">Berlin Art Week</div>
-      <div class="perk">Private Preview einen Tag vor der offiziellen Eröffnung.</div>
-    </div>
-  </article>
-</div>
-
-      <!-- Proof & CTA -->
-      <div class="proof">
-        <strong>Vertraut von 20.000+ Berliner:innen</strong> · Partnerschaften mit 35+ Locations ·
-        „Fühlt sich an wie Berlins bestgehütetes Geheimnis.“ – <em>Mitglied Lisa M.</em>
+      <div class="benefit">
+        <h3>Early Access</h3>
+        <p>Einladungen zu Openings, Ausstellungen und Pop-ups, bevor sie öffentlich sind.</p>
       </div>
-      <div class="club-ctas">
-        <a class="btn btn-red js-scroll" href="#newsletter">Jetzt beitreten</a>
-      </div>
-
-      <!-- FAQ modern/erweitert -->
-      <div class="faq" id="faq">
-        <details>
-          <summary>Wie funktioniert der Club?</summary>
-          <div class="answer">
-            Ein monatlicher Fixpreis schaltet Vorteile bei kuratierten Partnern frei. Deine digitale Mitgliedskarte liegt im Account. Jeden Monat kommen neue Benefits hinzu, damit immer etwas Frisches dabei ist.
-          </div>
-        </details>
-        <details>
-          <summary>Was kostet es?</summary>
-          <div class="answer">
-            Ab €15,90/Monat. Transparent, ohne versteckte Gebühren und ohne komplizierte Stufen. Jahrespläne enthalten saisonale Extras und gelegentliche Einladungen.
-          </div>
-        </details>
-        <details>
-          <summary>Kann ich jederzeit kündigen?</summary>
-          <div class="answer">
-            Ja. Einfach im Dashboard verwalten. Die Kündigung greift sofort, bereits bestätigte Buchungen bleiben bestehen.
-          </div>
-        </details>
-        <details>
-          <summary>Welche Vorteile kann ich erwarten?</summary>
-          <div class="answer">
-            Sinnvolle Mehrwerte: Welcome-Drinks, Off-Peak-Spa-Rabatte, Early-Access-Buchungen, Private Previews und gelegentliche Line-Skips bei ausgewählten Partnern. Qualität vor Masse.
-          </div>
-        </details>
-        <details>
-          <summary>Wie löse ich einen Benefit ein?</summary>
-          <div class="answer">
-            Im Account stehen klare Schritte: digitale Karte zeigen, Code eingeben oder über einen Member-Link buchen. Einschränkungen (Daten, Gruppengröße) werden vorab deutlich angezeigt.
-          </div>
-        </details>
-        <details>
-          <summary>Lohnt es sich, wenn ich nicht jede Woche ausgehe?</summary>
-          <div class="answer">
-            Ja, wenn du weniger, aber bessere Erlebnisse bevorzugst. Schon 1–2 Einlösungen pro Monat decken in der Regel die Gebühr ab. Viele nutzen den Club als kuratierte Entdecker-Abkürzung.
-          </div>
-        </details>
+      <div class="benefit">
+        <h3>VIP Entry</h3>
+        <p>Line-Skip bei ausgewählten Events und bevorzugte Reservierungen.</p>
       </div>
     </div>
-  </section>
+
+    <h3 class="section-title">Sneak Peek in unsere Top10 Club Vorteile</h3>
+    <div class="partners">
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-liquidrom.jpg')"></div>
+        <div class="body"><div class="name">Liquidrom</div><div class="perk">Welcome-Drink + 20&nbsp;% auf den Wochentag-Eintritt.</div></div>
+      </article>
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-kaefer.jpg')"></div>
+        <div class="body"><div class="name">Käfer Dachgarten</div><div class="perk">Exklusiver Member-Table. Limitierte Plätze.</div></div>
+      </article>
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-artweek.jpg')"></div>
+        <div class="body"><div class="name">Berlin Art Week</div><div class="perk">Private Preview vor der Eröffnung.</div></div>
+      </article>
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-skyspa.jpg')"></div>
+        <div class="body"><div class="name">Sky SPA &amp; Fitness</div><div class="perk">10&nbsp;€ Nachlass auf den Tagespass.</div></div>
+      </article>
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-jubel.jpg')"></div>
+        <div class="body"><div class="name">JUBEL Patisserie</div><div class="perk">2-für-1 auf ausgewählte Törtchen.</div></div>
+      </article>
+      <article class="partner-card">
+        <div class="img" style="background-image:url('./images/club-bode.jpg')"></div>
+        <div class="body"><div class="name">Bode Gallery</div><div class="perk">5&nbsp;% Nachlass auf Kunstobjekte.</div></div>
+      </article>
+    </div>
+
+    <div class="proof">
+      <strong>Vertraut von 20.000+ Berliner:innen</strong> · Partnerschaften mit 35+ Locations ·
+      „Berlins bestgehütetes Geheimnis.“ – <em>Mitglied Lisa M.</em>
+    </div>
+    <div class="club-ctas">
+      <a class="btn btn-red js-scroll" href="#newsletter">Jetzt beitreten</a>
+    </div>
+
+    <div class="faq" id="faq">
+  <details><summary>Wie funktioniert der Club?</summary><div class="answer">Ein monatlicher Fixpreis schaltet Vorteile bei kuratierten Partnern frei. Deine digitale Mitgliedskarte liegt im Account. Jeden Monat kommen neue Benefits hinzu, damit immer etwas Frisches dabei ist.</div></details>
+  <details><summary>Was kostet es?</summary><div class="answer">Ab €15,90/Monat. Transparent, ohne versteckte Gebühren und ohne komplizierte Stufen. Jahrespläne enthalten saisonale Extras und gelegentliche Einladungen.</div></details>
+  <details><summary>Kann ich jederzeit kündigen?</summary><div class="answer">Ja. Einfach im Dashboard verwalten. Die Kündigung greift sofort, bereits bestätigte Buchungen bleiben bestehen.</div></details>
+  <details><summary>Welche Vorteile?</summary><div class="answer">Sinnvolle Mehrwerte: Welcome-Drinks, Off-Peak-Spa-Rabatte, Early-Access-Buchungen, Private Previews und gelegentliche Line-Skips bei ausgewählten Partnern. Qualität vor Masse.</div></details>
+  <details><summary>Wie löse ich ein?</summary><div class="answer">Im Account stehen klare Schritte: digitale Karte zeigen, Code eingeben oder über einen Member-Link buchen. Einschränkungen (Daten, Gruppengröße) werden vorab deutlich angezeigt.</div></details>
+  <details><summary>Lohnt es sich?</summary><div class="answer">Ja, wenn du weniger, aber bessere Erlebnisse bevorzugst. Schon 1–2 Einlösungen pro Monat decken in der Regel die Gebühr ab. Viele nutzen den Club als kuratierte Entdecker-Abkürzung.
+</div></details>
+  </div>
+</section>
+
 
   <!-- Newsletter -->
   <section id="newsletter" class="section newsletter" aria-label="Newsletter">
@@ -594,7 +645,7 @@
     <p>Frische Updates. Kuratierte Tipps. Kein Rauschen – nur, was sich lohnt.</p>
     <div>
       <input class="field" type="email" placeholder="Deine E-Mail" />
-      <button class="btn btn-red">Wöchentliche Insider-Updates</button>
+      <button class="btn btn-red">Zum Newsletter anmelden</button>
     </div>
     <p style="font-size:14px; color:#777; margin-top:10px">
       Jeden Freitagmorgen: neue Openings, versteckte Perlen und Wochenend-Highlights – handverlesen vom Top10 Team.
